@@ -64,6 +64,7 @@
 ---@field public groups bufferline.GroupOpts
 ---@field public themable boolean
 ---@field public hover bufferline.HoverOptions
+---@field public unnamed_title string
 
 ---@class bufferline.HLGroup
 ---@field fg string

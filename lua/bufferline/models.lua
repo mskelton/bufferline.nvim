@@ -2,6 +2,7 @@ local lazy = require("bufferline.lazy")
 local utils = lazy.require("bufferline.utils") ---@module "bufferline.utils"
 local log = lazy.require("bufferline.utils.log") ---@module "bufferline.utils.log"
 local constants = lazy.require("bufferline.constants") ---@module "bufferline.constants"
+local config = lazy.require("bufferline.config") ---@module "bufferline.config"
 
 local M = {}
 
@@ -172,7 +173,8 @@ function Buffer:new(buf)
     extension = buf.extension,
     type = buf.buftype,
   })
-  local name = "[No Name]"
+  local name = config.options.unnamed_title
+
   if buf.path and #buf.path > 0 then
     name = fn.fnamemodify(buf.path, ":t")
     name = is_directory and name .. "/" or name
